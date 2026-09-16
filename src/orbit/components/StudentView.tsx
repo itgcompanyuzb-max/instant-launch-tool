@@ -198,8 +198,8 @@ export default function StudentView({
                     return { valid: false, errorMsg: "X Login va parolni kiriting!" };
                   }
 
-                  const isLoginOk = ['sardor', 'user', 'admin', 'talaba', 'ustoz'].includes(trimmedLogin) || trimmedLogin.length >= 3;
-                  const isPassOk = ['1234', '123', 'admin', 'password'].includes(trimmedPassword) || trimmedPassword.length >= 3;
+                  const isLoginOk = trimmedLogin === 'sardor';
+                  const isPassOk = trimmedPassword.toLowerCase() === 'sardor';
 
                   if (isLoginOk && isPassOk) {
                     return { valid: true };
