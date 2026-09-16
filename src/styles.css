@@ -258,3 +258,33 @@ body {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+
+/* Fast error shake for the swipe button (tk-tk-tk) */
+@keyframes shake-fast {
+  0%, 100% { transform: translateX(0); }
+  10% { transform: translateX(-5px); }
+  20% { transform: translateX(5px); }
+  30% { transform: translateX(-4px); }
+  40% { transform: translateX(4px); }
+  50% { transform: translateX(-3px); }
+  60% { transform: translateX(3px); }
+  70% { transform: translateX(-2px); }
+  80% { transform: translateX(2px); }
+  90% { transform: translateX(-1px); }
+}
+
+.animate-shake-fast {
+  animation: shake-fast 0.35s linear 2 both;
+}
+
+/* Rapid jitter for the red X icon */
+@keyframes x-jitter {
+  0%, 100% { transform: translate(0, 0) rotate(0deg) scale(1.1); }
+  25% { transform: translate(-1.5px, 1px) rotate(-8deg) scale(1.15); }
+  50% { transform: translate(1.5px, -1px) rotate(8deg) scale(1.1); }
+  75% { transform: translate(-1px, -1.5px) rotate(-5deg) scale(1.15); }
+}
+
+.animate-x-jitter {
+  animation: x-jitter 0.09s linear infinite;
+}
