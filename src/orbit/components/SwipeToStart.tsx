@@ -42,13 +42,13 @@ export default function SwipeToStart({
     return () => window.removeEventListener('resize', updateMaxDrag);
   }, []);
 
-  // Smooth haptic tick ("trrrr" machine-gun vibration simulation)
+  // iPhone picker style "trrrrr" haptic: a short tick every few pixels of drag
   const triggerDragHaptic = (currentX: number) => {
-    if (Math.abs(currentX - lastVibePosRef.current) > 12) {
+    if (Math.abs(currentX - lastVibePosRef.current) >= 6) {
       lastVibePosRef.current = currentX;
-      if (navigator.vibrate) {
+      if (typeof navigator !== 'undefined' && navigator.vibrate) {
         try {
-          navigator.vibrate(10);
+          navigator.vibrate(6);
         } catch (_) {}
       }
     }
@@ -141,9 +141,10 @@ export default function SwipeToStart({
       setErrorMessage(result.errorMsg || "X Noto'g'ri login yoki parol");
       setDragX(maxDragRef.current);
 
-      if (navigator.vibrate) {
+      // "tk-tk-tk-tk" error buzz — fast, sharp, like iOS error haptic
+      if (typeof navigator !== 'undefined' && navigator.vibrate) {
         try {
-          navigator.vibrate([100, 50, 100, 50, 150]);
+          navigator.vibrate([25, 35, 25, 35, 25, 35, 25, 35, 60]);
         } catch (_) {}
       }
 
@@ -167,7 +168,7 @@ export default function SwipeToStart({
           isCompleted
             ? 'bg-emerald-950/80 border-emerald-500/80'
             : isError
-            ? 'bg-rose-950/90 border-rose-500/80 animate-shake'
+            ? 'bg-rose-950/90 border-rose-500/80 animate-shake-fast'
             : 'bg-neutral-900 dark:bg-neutral-800 border-neutral-700/60 dark:border-neutral-700'
         }`}
       >
@@ -231,7 +232,7 @@ export default function SwipeToStart({
           {isCompleted ? (
             <Check className="w-6 h-6 animate-scale text-white" />
           ) : isError ? (
-            <X className="w-6 h-6 animate-bounce text-white" />
+            <X className="w-6 h-6 animate-x-jitter text-white" strokeWidth={3} />
           ) : (
             <div className="flex items-center justify-center">
               <ArrowRight className={`w-5 h-5 transition-transform ${isDragging ? 'translate-x-0.5 scale-110' : ''}`} />
