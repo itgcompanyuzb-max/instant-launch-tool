@@ -141,9 +141,10 @@ export default function SwipeToStart({
       setErrorMessage(result.errorMsg || "X Noto'g'ri login yoki parol");
       setDragX(maxDragRef.current);
 
-      if (navigator.vibrate) {
+      // "tk-tk-tk-tk" error buzz — fast, sharp, like iOS error haptic
+      if (typeof navigator !== 'undefined' && navigator.vibrate) {
         try {
-          navigator.vibrate([100, 50, 100, 50, 150]);
+          navigator.vibrate([25, 35, 25, 35, 25, 35, 25, 35, 60]);
         } catch (_) {}
       }
 
