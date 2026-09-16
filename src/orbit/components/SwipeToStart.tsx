@@ -232,7 +232,7 @@ export default function SwipeToStart({
           {isCompleted ? (
             <Check className="w-6 h-6 animate-scale text-white" />
           ) : isError ? (
-            <X className="w-6 h-6 animate-bounce text-white" />
+            <X className="w-6 h-6 animate-x-jitter text-white" strokeWidth={3} />
           ) : (
             <div className="flex items-center justify-center">
               <ArrowRight className={`w-5 h-5 transition-transform ${isDragging ? 'translate-x-0.5 scale-110' : ''}`} />
