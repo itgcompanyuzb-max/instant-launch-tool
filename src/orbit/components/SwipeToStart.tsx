@@ -42,13 +42,13 @@ export default function SwipeToStart({
     return () => window.removeEventListener('resize', updateMaxDrag);
   }, []);
 
-  // Smooth haptic tick ("trrrr" machine-gun vibration simulation)
+  // iPhone picker style "trrrrr" haptic: a short tick every few pixels of drag
   const triggerDragHaptic = (currentX: number) => {
-    if (Math.abs(currentX - lastVibePosRef.current) > 12) {
+    if (Math.abs(currentX - lastVibePosRef.current) >= 6) {
       lastVibePosRef.current = currentX;
-      if (navigator.vibrate) {
+      if (typeof navigator !== 'undefined' && navigator.vibrate) {
         try {
-          navigator.vibrate(10);
+          navigator.vibrate(6);
         } catch (_) {}
       }
     }
