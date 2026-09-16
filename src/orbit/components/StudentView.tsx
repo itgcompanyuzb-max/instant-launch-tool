@@ -181,7 +181,7 @@ export default function StudentView({
                   type="password"
                   value={passwordInput}
                   onChange={e => setPasswordInput(e.target.value)}
-                  placeholder="Parol (masalan: 1234)"
+                  placeholder="Parol (masalan: sardor)"
                   className="w-full h-14 bg-white/90 dark:bg-neutral-900/90 border-2 border-neutral-300 dark:border-neutral-700/80 rounded-2xl py-4 pl-12 pr-4 text-sm font-semibold text-neutral-900 dark:text-white placeholder-neutral-400 focus:outline-none focus:border-neutral-500 dark:focus:border-white transition-all shadow-md"
                 />
               </div>
