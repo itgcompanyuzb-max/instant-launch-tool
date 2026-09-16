@@ -1,0 +1,13 @@
+{
+  "expo": {
+    "name": "Orbit Vibro Demo",
+    "slug": "orbit-vibro-demo",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "dark",
+    "ios": { "supportsTablet": true },
+    "android": {
+      "permissions": ["VIBRATE"]
+    }
+  }
+}
