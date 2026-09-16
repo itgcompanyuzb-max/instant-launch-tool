@@ -168,7 +168,7 @@ export default function SwipeToStart({
           isCompleted
             ? 'bg-emerald-950/80 border-emerald-500/80'
             : isError
-            ? 'bg-rose-950/90 border-rose-500/80 animate-shake'
+            ? 'bg-rose-950/90 border-rose-500/80 animate-shake-fast'
             : 'bg-neutral-900 dark:bg-neutral-800 border-neutral-700/60 dark:border-neutral-700'
         }`}
       >
